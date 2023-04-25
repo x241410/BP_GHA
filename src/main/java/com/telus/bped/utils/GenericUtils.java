@@ -249,19 +249,5 @@ public class GenericUtils {
 
 	}
 	
-	public static void main(String[] args) throws Exception {
-		/*
-		 * String str = EncryptDecrypt.generateEncryptData(
-		 * "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", "gh-key-string");
-		 * System.out.println(str);
-		 */
-	       
-	       System.out.println(EncryptionUtils.encode("x258025"));
-	       System.out.println(EncryptionUtils.encode("telus127"));
-
-	       System.out.println(EncryptionUtils.encode("as258025"));
-
-	       System.out.println(EncryptionUtils.encode("tel"));
-
-	}
+	
 }

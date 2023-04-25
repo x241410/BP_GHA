@@ -45,12 +45,6 @@ public class StepDefinitions extends BaseTest {
 	@Given("test data configuration for {string}")
 	public void test_data_configuration_for(String scriptName) throws Exception {
 		String env = SystemProperties.getStringValue("execution.environment");
-		GoogleSheetsUtils googleSheetsUtils = new GoogleSheetsUtils();
-
-		String accessToken = GoogleSheetsUtils.getAccessToken();
-		JSONArray baseDataAppDetailsArray = googleSheetsUtils.readBaseGoogleSheet(accessToken);
-		
-		Reporting.logReporter(Status.INFO, "Sheet Data: " + baseDataAppDetailsArray.toString());
 		
 		Reporting.logReporter(Status.INFO,
 				"Automation Configuration - Environment Configured for Automation Execution [" + env + "]");
@@ -59,9 +53,18 @@ public class StepDefinitions extends BaseTest {
 	}
 
 	@Given("user login into {string}")
-	public void user_login_into(String applicationName) {
+	public void user_login_into(String applicationName) throws Exception {
 
-		WebDriverSteps.getWebDriverSession().get("https://www.google.com/");
+		//WebDriverSteps.getWebDriverSession().get("https://www.google.com/");
+		GoogleSheetsUtils googleSheetsUtils = new GoogleSheetsUtils();
+
+		String accessToken = GoogleSheetsUtils.getAccessToken();
+		Reporting.logReporter(Status.INFO, "TOKEN OBTAINED!!");
+		
+		JSONArray baseDataAppDetailsArray = googleSheetsUtils.readBaseGoogleSheet(accessToken);
+		
+		Reporting.logReporter(Status.INFO, "Sheet Data: " + baseDataAppDetailsArray.toString());
+		
 	}
 
 }
