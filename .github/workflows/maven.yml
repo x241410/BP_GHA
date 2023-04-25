@@ -10,7 +10,9 @@ on:
 jobs:
   buildandtest:
 
-    runs-on:  [self-hosted, telus-org-runner]
+    #runs-on:  [self-hosted, telus-org-runner]
+    runs-on: ubuntu-latest
+    
     env:
         GH_READ_PACKAGES_TOKEN: ${{ secrets.GH_READ_PACKAGES_TOKEN }}
         MY_SECRET1: ${{ secrets.TEST_PWD }} 
