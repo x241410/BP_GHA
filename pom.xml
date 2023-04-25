@@ -108,11 +108,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>telus.bt.automation</groupId>
-			<!-- <artifactId>telus-test-selenium-ui-core</artifactId> -->
 			<artifactId>telus-test-selenium-ui-core</artifactId>
 			<version>6.1-SNAPSHOT</version>
-			<scope>system</scope>
-			<systemPath>${pom.basedir}/JAR/telus-test-common-core-3.0-SNAPSHOT.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.epam.reportportal</groupId>
