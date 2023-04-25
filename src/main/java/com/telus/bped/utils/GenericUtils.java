@@ -22,7 +22,7 @@ import java.time.format.DateTimeFormatter;
 
 public class GenericUtils {
 
-	private static String gsheetConfigJsonFilepath = "\\config\\" + "gSheetConfig.json";
+	private static String gsheetConfigJsonFilepath = "config/" + "gSheetConfig.json";
 	static JSONObject jsonFileObjectForDetails = GenericUtils.getJSONObjectFromJSONFile(gsheetConfigJsonFilepath);
 
 	/**
