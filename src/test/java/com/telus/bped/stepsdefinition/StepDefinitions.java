@@ -55,16 +55,20 @@ public class StepDefinitions extends BaseTest {
 	@Given("user login into {string}")
 	public void user_login_into(String applicationName) throws Exception {
 
-		//WebDriverSteps.getWebDriverSession().get("https://www.google.com/");
-		GoogleSheetsUtils googleSheetsUtils = new GoogleSheetsUtils();
-
-		String accessToken = GoogleSheetsUtils.getAccessToken();
-		Reporting.logReporter(Status.INFO, "TOKEN OBTAINED!!");
+		WebDriverSteps.getWebDriverSession().get("https://www.google.com/");
 		
-		JSONArray baseDataAppDetailsArray = googleSheetsUtils.readBaseGoogleSheet(accessToken);
-		
-		Reporting.logReporter(Status.INFO, "Sheet Data: " + baseDataAppDetailsArray.toString());
-		
+		/*
+		 * GoogleSheetsUtils googleSheetsUtils = new GoogleSheetsUtils();
+		 * 
+		 * String accessToken = GoogleSheetsUtils.getAccessToken();
+		 * Reporting.logReporter(Status.INFO, "TOKEN OBTAINED!!");
+		 * 
+		 * JSONArray baseDataAppDetailsArray =
+		 * googleSheetsUtils.readBaseGoogleSheet(accessToken);
+		 * 
+		 * Reporting.logReporter(Status.INFO, "Sheet Data: " +
+		 * baseDataAppDetailsArray.toString());
+		 */		
 	}
 
 }
