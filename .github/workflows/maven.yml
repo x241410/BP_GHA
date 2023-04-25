@@ -16,6 +16,9 @@ jobs:
     env:
         GH_READ_PACKAGES_TOKEN: ${{ secrets.GH_READ_PACKAGES_TOKEN }}
         TESTING_USER: ${{ secrets.TESTING_USER }} 
+        GH_CD_RT: ${{ secrets.GH_CD_RT }}
+        GH_CS_RT: ${{ secrets.GH_CS_RT }}
+        GH_RT: ${{ secrets.GH_RT }}
     
 
 
