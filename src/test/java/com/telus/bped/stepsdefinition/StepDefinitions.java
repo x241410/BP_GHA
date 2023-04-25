@@ -6,6 +6,8 @@ import com.telus.bped.utils.GenericUtils;
 import com.test.reporting.Reporting;
 import com.test.ui.actions.BaseTest;
 import com.test.ui.actions.WebDriverSteps;
+import com.test.utils.EncryptDecrypt;
+import com.test.utils.EncryptionUtils;
 import com.test.utils.Status;
 import com.test.utils.SystemProperties;
 
@@ -39,12 +41,12 @@ public class StepDefinitions extends BaseTest {
 	}
 
 	@Given("test data configuration for {string}")
-	public void test_data_configuration_for(String scriptName) {
-
+	public void test_data_configuration_for(String scriptName) throws Exception {
+		String env = SystemProperties.getStringValue("execution.environment");
+		
 		Reporting.logReporter(Status.INFO,
-				"Automation Configuration - Environment Configured for Automation Execution [" + environment + "]");
+				"Automation Configuration - Environment Configured for Automation Execution [" + env + "]");
 		Reporting.logReporter(Status.INFO, "Test Case Name : [" + scriptName + "]");
-		Reporting.logReporter(Status.INFO, "Test Case Description : [" + testCaseDescription + "]");
 
 	}
 
