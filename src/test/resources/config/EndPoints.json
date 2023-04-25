@@ -1,0 +1,14 @@
+{
+	"PROD": {
+		"ENDPOINT_PROD": "",
+		"ENDPOINT_CMS_PROD": "https://soa-mp-toll-pr.tsl.telus.com/CMO/ContractMgmt/SelfServe/ContractMgmtSvc_v3_0_vs0"
+
+	},
+	"NON_PROD": {
+		"ENDPOINT_NON_PROD": "https://btln009093:8443/automation-api/",
+		"ENDPOINT_CMS_NON_PROD": "https://soa-mp-toll-pr.tsl.telus.com/CMO/ContractMgmt/SelfServe/ContractMgmtSvc_v3_0_vs0"
+	},
+	"PT140": {
+		"ENDPOINT_PT140": ""
+	}
+}
