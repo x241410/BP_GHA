@@ -1,8 +1,10 @@
 package com.telus.bped.stepsdefinition;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.telus.bped.utils.GenericUtils;
+import com.telus.bped.utils.GoogleSheetsUtils;
 import com.test.reporting.Reporting;
 import com.test.ui.actions.BaseTest;
 import com.test.ui.actions.WebDriverSteps;
@@ -43,6 +45,12 @@ public class StepDefinitions extends BaseTest {
 	@Given("test data configuration for {string}")
 	public void test_data_configuration_for(String scriptName) throws Exception {
 		String env = SystemProperties.getStringValue("execution.environment");
+		GoogleSheetsUtils googleSheetsUtils = new GoogleSheetsUtils();
+
+		String accessToken = GoogleSheetsUtils.getAccessToken();
+		JSONArray baseDataAppDetailsArray = googleSheetsUtils.readBaseGoogleSheet(accessToken);
+		
+		Reporting.logReporter(Status.INFO, "Sheet Data: " + baseDataAppDetailsArray.toString());
 		
 		Reporting.logReporter(Status.INFO,
 				"Automation Configuration - Environment Configured for Automation Execution [" + env + "]");
