@@ -4,8 +4,14 @@
   <servers>
         <server>
             <id>github</id>
-            <username>${env.TESTING_USER}</username>
-            <password>${env.GH_READ_PACKAGES_TOKEN}</password>
+            <configuration>
+                <httpHeaders>
+                    <property>
+                        <name>Authorization</name>
+                        <value>Bearer ${env.GH_READ_PACKAGES_TOKEN}</value>
+                    </property>
+                </httpHeaders>
+            </configuration>
         </server>
     </servers>
 
