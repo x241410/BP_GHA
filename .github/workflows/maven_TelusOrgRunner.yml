@@ -10,7 +10,7 @@ on:
 jobs:
   buildandtest:
 
-    runs-on:  [telus-org-runner]
+    runs-on:  [self-hosted, telus-org-runner]
     #runs-on: ubuntu-latest
     
     env:
