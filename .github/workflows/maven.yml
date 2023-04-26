@@ -57,7 +57,7 @@ jobs:
     - name: Run tests        
       #run: mvn --settings ./settings.xml -B test -DexecutionType=RORGP -Dwebdriver.chrome.driver=/home/batch_vm/actions-runner-2/chromedriver -Dexecution.environment=ITN02 -DNCID=333003 -DUserName=x249799 -DPassword=MY_SECRET1${{ env.MY_SECRET1 }}
       #run: mvn --settings ./settings.xml -B -Dmaven.test.failure.ignore=false -Dselenium.browser.options=P_HEADLESS_ALONE -DexecutionType=RORGP -Dexecution.environment=ITN02 -DNCID=333003 -DUserName=x249799 -DPassword=${{ env.MY_SECRET1 }} package --file pom.xml test
-      run: mvn --settings ./settings.xml -B package --file pom.xml test
+      run: mvn --settings ./settings.xml -B -Dselenium.browser.options=P_HEADLESS_ALONE package --file pom.xml test
 
     - name: Attach Report
       uses: actions/upload-artifact@v2
