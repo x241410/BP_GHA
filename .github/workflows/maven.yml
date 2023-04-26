@@ -19,6 +19,7 @@ jobs:
         GH_CD_RT: ${{ secrets.GH_CD_RT }}
         GH_CS_RT: ${{ secrets.GH_CS_RT }}
         GH_RT: ${{ secrets.GH_RT }}
+        custom_param: ${{ inputs.custom_param }}
     
 
 
