@@ -9,7 +9,14 @@
 
 name: First WF OD
 
-on: workflow_dispatch
+on: 
+  workflow_call:
+      inputs:
+        environments:
+          description: 'set environment for execution'
+          default: 'NON-PROD'
+          required: true
+          type: string
 
 jobs:
   build:
