@@ -18,12 +18,6 @@ on:
           required: true
           type: string
           
-        branch:
-          description: 'Github Branch'
-          default: 'https://github.com/x241410/BP_GHA.git'
-          required: true
-          type: string
-          
         environment:
           description: 'Execution Environment'
           default: 'NON-PROD'
@@ -38,7 +32,7 @@ on:
           
         uReportLaunchName:
           description: 'uReport Launch Name'
-          default: '4'
+          default: 'DryRunLaunch'
           required: true
           type: string 
 
@@ -55,6 +49,9 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
+        
+    - name: Print Values
+      run: echo ${{ github.event.inputs.repoUrl }} ${{ github.event.inputs.environment }} ${{ github.event.inputs.threadCount }} ${{ github.event.inputs.uReportLaunchName }}
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
