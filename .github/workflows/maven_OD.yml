@@ -12,17 +12,35 @@ name: First WF OD
 on: 
   workflow_dispatch:
       inputs:
-        environments:
-          description: 'set environment for execution'
+        repoUrl:
+          description: 'Github Repository'
+          default: 'https://github.com/x241410/BP_GHA.git'
+          required: true
+          type: string
+          
+        branch:
+          description: 'Github Branch'
+          default: 'https://github.com/x241410/BP_GHA.git'
+          required: true
+          type: string
+          
+        environment:
+          description: 'Execution Environment'
           default: 'NON-PROD'
           required: true
           type: string
           
-        thread:
-          description: 'set thread count for execution'
+        threadCount:
+          description: 'Thread Count'
           default: '4'
           required: true
           type: string
+          
+        uReportLaunchName:
+          description: 'uReport Launch Name'
+          default: '4'
+          required: true
+          type: string 
 
 jobs:
   build:
