@@ -10,7 +10,7 @@
 name: First WF OD
 
 on: 
-  workflow_call:
+  workflow_dispatch:
       inputs:
         environments:
           description: 'set environment for execution'
