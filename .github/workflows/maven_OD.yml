@@ -9,13 +9,41 @@
 
 name: First WF OD
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+      inputs:
+        repoUrl:
+          description: 'Github Repository'
+          default: 'https://github.com/x241410/BP_GHA.git'
+          required: true
+          type: string
+          
+        environment:
+          description: 'Execution Environment'
+          default: 'NON-PROD'
+          required: true
+          type: string
+          
+        threadCount:
+          description: 'Thread Count'
+          default: '4'
+          required: true
+          type: string
+          
+        uReportLaunchName:
+          description: 'uReport Launch Name'
+          default: 'DryRunLaunch'
+          required: true
+          type: string 
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
-
+    #runs-on: ubuntu-latest
+    runs-on: windows-latest
+    env:
+        GH_READ_PACKAGES_TOKEN: ${{ secrets.GH_READ_PACKAGES_TOKEN }}
+        
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -24,8 +52,12 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
+        
+    - name: Print Values
+      run: echo ${{ github.event.inputs.repoUrl }} ${{ github.event.inputs.environment }} ${{ github.event.inputs.threadCount }} ${{ github.event.inputs.uReportLaunchName }}
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      #run: mvn -B package --file pom.xml
+      run:  mvn --settings ./settings.xml -B package --file pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
