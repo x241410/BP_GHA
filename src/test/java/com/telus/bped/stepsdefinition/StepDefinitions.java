@@ -61,6 +61,7 @@ public class StepDefinitions extends BaseTest {
 		Validate.takeStepScreenShot("Browser");
 		Reporting.logReporter(Status.INFO, "Chrome Browser Launched Successfully!");
 		
+		String token = GoogleSheetsUtils.getAccessToken();
 		
 		/*
 		 * GoogleSheetsUtils googleSheetsUtils = new GoogleSheetsUtils();
