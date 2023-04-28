@@ -7,6 +7,7 @@ import com.telus.bped.utils.GenericUtils;
 import com.telus.bped.utils.GoogleSheetsUtils;
 import com.test.reporting.Reporting;
 import com.test.ui.actions.BaseTest;
+import com.test.ui.actions.Validate;
 import com.test.ui.actions.WebDriverSteps;
 import com.test.utils.EncryptDecrypt;
 import com.test.utils.EncryptionUtils;
@@ -55,7 +56,11 @@ public class StepDefinitions extends BaseTest {
 	@Given("user login into {string}")
 	public void user_login_into(String applicationName) throws Exception {
 
+		Reporting.logReporter(Status.INFO, "Launch Chrome Browser");
 		WebDriverSteps.getWebDriverSession().get("https://www.google.com/");
+		Validate.takeStepScreenShot("Browser");
+		Reporting.logReporter(Status.INFO, "Chrome Browser Launched Successfully!");
+		
 		
 		/*
 		 * GoogleSheetsUtils googleSheetsUtils = new GoogleSheetsUtils();
