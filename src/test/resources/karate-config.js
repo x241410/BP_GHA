@@ -23,6 +23,6 @@ function() {
 
   karate.configure('connectTimeout', 116000);
   karate.configure('readTimeout', 116000);
-  karate.configure('proxy',  'http://198.161.14.25:8080');
+//  karate.configure('proxy',  'http://198.161.14.25:8080');
   return config;
 }

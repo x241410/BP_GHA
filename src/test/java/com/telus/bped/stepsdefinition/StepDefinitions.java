@@ -61,20 +61,23 @@ public class StepDefinitions extends BaseTest {
 		Validate.takeStepScreenShot("Browser");
 		Reporting.logReporter(Status.INFO, "Chrome Browser Launched Successfully!");
 		
-		String token = GoogleSheetsUtils.getAccessToken();
 		
-		/*
-		 * GoogleSheetsUtils googleSheetsUtils = new GoogleSheetsUtils();
-		 * 
-		 * String accessToken = GoogleSheetsUtils.getAccessToken();
-		 * Reporting.logReporter(Status.INFO, "TOKEN OBTAINED!!");
-		 * 
-		 * JSONArray baseDataAppDetailsArray =
-		 * googleSheetsUtils.readBaseGoogleSheet(accessToken);
-		 * 
-		 * Reporting.logReporter(Status.INFO, "Sheet Data: " +
-		 * baseDataAppDetailsArray.toString());
-		 */		
 	}
 
+	
+	@Given("display gsheet data")
+	public void display_gsheet_data() throws Exception {
+				
+		  GoogleSheetsUtils googleSheetsUtils = new GoogleSheetsUtils();
+		  
+		  String accessToken = GoogleSheetsUtils.getAccessToken();
+		  Reporting.logReporter(Status.INFO, "TOKEN OBTAINED!!");
+		  
+		  JSONArray baseDataAppDetailsArray =
+		  googleSheetsUtils.readBaseGoogleSheet(accessToken);
+		  
+		  Reporting.logReporter(Status.INFO, "Sheet Data: " +
+		  baseDataAppDetailsArray.toString());
+		 		
+	}
 }
